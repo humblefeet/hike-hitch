@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{% url 'logout_view' %}">Log Out</a>
+    <h1>Check out these MF trails!</h1>
+
+        {% for trail in trails %}
+        <h3>{{trail.name}}</h3>
+        <p>Length(km): {{trail.length}}</p>
+        <p>Difficulty: {{trail.difficulty}}</p>
+        {% endfor %}
+        
+{% endblock %}

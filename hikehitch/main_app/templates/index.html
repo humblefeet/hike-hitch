@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+    <ul>
+        <li><a href="{% url 'trails_index' %}">Trails</a></li>
+        <li><a href="{% url 'login' %}">Log In</a></li>
+    </ul>
+</nav>
+    <h2>Lets go for a hike! Can you drive?</h2>
+
+    <div>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    </div>
+
+{% endblock %}
