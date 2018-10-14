@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Trail
+from .models import Trail, Hiker
 
 
 # Create your views here.
@@ -22,6 +23,15 @@ def logout_view(request):
 def trails_detail(request, trail_id):
     trail = Trail.objects.get(id=trail_id)
     return render(request, 'trails/<int:trail_id>', {'trail': trail})
+
+@login_required
+def profile(request, username):
+    if username == request.user.username:
+        user = User.objects.get(username=username)
+        hiker = Hiker.objects.filter(user=user)
+        return render(request, 'profile.html', {'username': username, 'hiker': hiker})
+    else:
+        return HttpResponseRedirect('/')
 
 
 def login_view(request):
