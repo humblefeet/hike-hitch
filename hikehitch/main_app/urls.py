@@ -12,7 +12,7 @@ urlpatterns = [
     path('logout/', views.logout_view, name="logout_view"),
     path('user/<username>', views.profile, name ='profile'),
     path('hikers/', views.hikers_index, name='hikers_index'),
-    path('hikers/create/', views.HikerCreate.as_view(), name='hiker_create'),
-    path('calendar/create/', views.TripCreate.as_view(), name='trip_create'),
-    path('calendar/', views.calendar, name='calendar'),
+    path('signup/hikers/create/', views.HikerCreate.as_view(), name='hiker_create'),
+    path('trips/', views.trips, name='trips'),
+    path('trips/create/', views.TripCreate.as_view(), name='trip_create'),
 ]

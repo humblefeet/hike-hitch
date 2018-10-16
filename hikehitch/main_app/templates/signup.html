@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="blue-grey lighten-4">
     <h2>Sign up</h2>
     <h5>{{ err }}</h5> 
     <form method="post">
@@ -8,4 +9,5 @@
         {{ form.as_table }}
         <button type="submit">Sign up</button>
     </form>
+</div>
 {% endblock %}

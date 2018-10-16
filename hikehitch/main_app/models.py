@@ -46,23 +46,23 @@ class Hiker(models.Model):
     age = models.IntegerField()
     sex = models.CharField(
         max_length=1,
-        choices=SEX,)
+        choices=SEX
+    )
     experience = models.CharField(
         max_length=1,
         choices = EXPERIENCE,
         default = EXPERIENCE[0][0]
     )
     email = models.EmailField()
-
     def __str__(self):
         return self.first_name
-
     def get_absolute_url(self):
         return reverse('profile', kwargs={'hiker_id': self.id})
 
+
 class Trip(models.Model):
     date = models.DateField()
-    hiker = models.ManyToManyField(Hiker)
+    user = models.ManyToManyField(User)
     length = models.IntegerField(
         default=0
     )
@@ -72,5 +72,3 @@ class Trip(models.Model):
         default=DIFFICULTY[0][0]
     )
     trail = models.ManyToManyField(Trail)
-    def __str__(self):
-        return  self.trail

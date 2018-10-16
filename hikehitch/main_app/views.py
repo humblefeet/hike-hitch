@@ -33,16 +33,16 @@ def hikers_index(request):
     hikers = Hiker.objects.all()
     return render(request, 'hikers/index.html', {'hikers': hikers})
 
-def calendar(request):
+def trips(request):
     trips = Trip.objects.all()
-    return render(request, 'calendar/index.html', {'trips': trips})
+    return render(request, 'trips/index.html', {'trips': trips})
 
 
 @login_required
 def profile(request, username):
     if username == request.user.username:
         user = User.objects.get(username=username)
-        hiker = Hiker.objects.filter(user=user)
+        hiker = Hiker.objects.get(user=user)
         return render(request, 'profile.html', {'username': username, 'hiker': hiker})
     else:
         return HttpResponseRedirect('/')
@@ -111,4 +111,4 @@ class TripCreate(CreateView):
     def form_valid(self,form):
         self.object = form.save(commit=False)
         self.object.save()
-        return HttpResponse('/calendar/')
+        return HttpResponse('/trips/')
