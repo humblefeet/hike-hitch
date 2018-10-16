@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    <h1 class="white-text">{{ user.username }}'s Profile:</h1>
-
-    {% for hiker in hikers %}
-        <a href="/user/{{ user_id }}">
-            <h3>{{ hiker.first_name }}</h3>
-        </a>
-    {% endfor %}
+    <div class="card-content white-text">
+        <h1>{{ user.username }}'s Profile:</h1>
+        <p>Age: {{hiker.age}}</p>
+        <p>Gender: {{hiker.sex}}</p>
+        <p>Experience: {{hiker.experience}}</p>
+    </div>
 {% endblock %}

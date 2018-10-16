@@ -37,12 +37,17 @@ def trips(request):
     trips = Trip.objects.all()
     return render(request, 'trips/index.html', {'trips': trips})
 
+def trips_detail(request, trip_id):
+    trip = Trip.objects.get(id=trip_id)
+    return render(request, 'trips/<int:trip_id>', {'trip': trip})
+
 
 @login_required
 def profile(request, username):
     if username == request.user.username:
         user = User.objects.get(username=username)
-        hiker = Hiker.objects.get(user=user)
+        # hiker = Hiker.objects.get(user=user)
+        hiker = user.hiker
         return render(request, 'profile.html', {'username': username, 'hiker': hiker})
     else:
         return HttpResponseRedirect('/')
@@ -98,7 +103,7 @@ class TrailCreate(CreateView):
         return HttpResponseRedirect('/trails/')
 
 class HikerCreate(CreateView):
-    model: Hiker
+    model = Hiker
     fields = '__all__'
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -106,7 +111,7 @@ class HikerCreate(CreateView):
         return HttpResponseRedirect('/trails/')
 
 class TripCreate(CreateView):
-    model: Trip
+    model = Trip
     fields = '__all__'
     def form_valid(self,form):
         self.object = form.save(commit=False)

@@ -3,7 +3,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url("https://i.imgur.com/OxBVtSD.jpg");
+    background-image: url("https://i.imgur.com/CAd4mkY.jpg");
     background-size: cover;
     }
 
@@ -21,4 +21,9 @@ header{
 h1{
     padding: 0 auto;
     margin: 0 auto;
+}
+
+.card{
+    display: flex;
+    float: left;
 }

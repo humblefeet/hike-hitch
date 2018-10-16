@@ -54,6 +54,7 @@ class Hiker(models.Model):
         default = EXPERIENCE[0][0]
     )
     email = models.EmailField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.first_name
     def get_absolute_url(self):

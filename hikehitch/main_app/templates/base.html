@@ -13,9 +13,11 @@
 </head>
 <body>
     <header class="center card-panel blue-grey lighten-4">
-            <h1 class="dark-grey-text">HikeHitch</h1>
-            <h3>Share a Ride to the Trail</h3>
+        <h1 class="dark-grey-text">HikeHitch</h1>
             <nav class="nav-wrapper blue-grey">
+                    <ul class="left">
+                        <li>Share a Ride to the Trail</li>
+                    </ul>
                     <ul class="right hide-on-med-and-down">
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'profile' user.username %}">Welcome {{user.username}}</a></li>
