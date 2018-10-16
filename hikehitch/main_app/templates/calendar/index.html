@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'trip_create' %}" method="POST">
+        {% csrf_token %}
+        {{ feeding_form.as_p }}
+        <input type="submit" class="btn" value="Create Hike">
+    </form>
+{% endblock %}

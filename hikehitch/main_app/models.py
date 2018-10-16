@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
+from datetime import date
+
 
 DIFFICULTY = (
     ('1', 'Easy'),
@@ -31,9 +34,12 @@ class Trail(models.Model):
         choices=DIFFICULTY,
         # set the default value for meal to be 'B'
         default=DIFFICULTY[0][0])
+    location = models.CharField(max_length=200)
         
     def __str__(self):
         return self.name
+
+
 
 class Hiker(models.Model):
     first_name = models.CharField(max_length=50)
@@ -47,6 +53,24 @@ class Hiker(models.Model):
         default = EXPERIENCE[0][0]
     )
     email = models.EmailField()
-    
+
     def __str__(self):
         return self.first_name
+
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'hiker_id': self.id})
+
+class Trip(models.Model):
+    date = models.DateField()
+    hiker = models.ManyToManyField(Hiker)
+    length = models.IntegerField(
+        default=0
+    )
+    difficulty= models.CharField(
+        max_length=1,
+        choices=DIFFICULTY,
+        default=DIFFICULTY[0][0]
+    )
+    trail = models.ManyToManyField(Trail)
+    def __str__(self):
+        return  self.trail

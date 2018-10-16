@@ -2,16 +2,11 @@
 
 {% block content %}
 
-<nav>
-    <ul>
-        <li><a href="{% url 'trails_index' %}">Trails</a></li>
-        <li><a href="{% url 'login' %}">Log In</a></li>
-    </ul>
-</nav>
-    <h2>Lets go for a hike! Can you drive?</h2>
-
-    <div>
-        <a href="{% url 'signup' %}">Sign Up</a>
+    <div class="center card blue-grey darken-1">
+        <h2 class="center white-text">Lets go for a hike! <br>Can you drive?</h2>
+        <p>Reduce your carbon footprint while making friends. 
+            <br>Join the social collective of like-minded hikers on the trail! </p>
+        <a href="{% url 'signup' %}" class="waves-effect waves-light btn-large"><i class="material-icons right"></i>Sign Up</a>
     </div>
 
 {% endblock %}

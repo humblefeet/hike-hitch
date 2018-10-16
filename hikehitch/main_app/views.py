@@ -5,7 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Trail, Hiker
+from .models import Trail, Hiker, Trip
+from django.views.generic.edit import CreateView
 
 
 # Create your views here.
@@ -13,16 +14,29 @@ from .models import Trail, Hiker
 def index(request):
     return render(request, 'index.html')
 
-def trails_index(request):
-    return render(request, 'trails/index.html')
+def about(request):
+    return render(request, 'about.html')
 
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+def trails_index(request):
+    trails = Trail.objects.all()
+    return render(request, 'trails/index.html', {'trails':  trails})
+
 def trails_detail(request, trail_id):
     trail = Trail.objects.get(id=trail_id)
     return render(request, 'trails/<int:trail_id>', {'trail': trail})
+
+def hikers_index(request):
+    hikers = Hiker.objects.all()
+    return render(request, 'hikers/index.html', {'hikers': hikers})
+
+def calendar(request):
+    trips = Trip.objects.all()
+    return render(request, 'calendar/index.html', {'trips': trips})
+
 
 @login_required
 def profile(request, username):
@@ -64,7 +78,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('trails/index.html')
+            return HttpResponseRedirect('hikers/create/')
         else:
             form = UserCreationForm()
             errMsg = "One or more fields was invalid, please try again"
@@ -72,3 +86,29 @@ def signup(request):
     else:
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
+
+
+
+class TrailCreate(CreateView):
+    model = Trail
+    fields = '__all__'
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return HttpResponseRedirect('/trails/')
+
+class HikerCreate(CreateView):
+    model: Hiker
+    fields = '__all__'
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return HttpResponseRedirect('/trails/')
+
+class TripCreate(CreateView):
+    model: Trip
+    fields = '__all__'
+    def form_valid(self,form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return HttpResponse('/calendar/')

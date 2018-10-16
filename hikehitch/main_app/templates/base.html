@@ -5,22 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- materialize css cdn -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <title>HikeHitch - Share a ride to the trail!</title>
 </head>
 <body>
-    <header>
-            <h1>HikeHitch</h1>
+    <header class="center card-panel blue-grey lighten-4">
+            <h1 class="dark-grey-text">HikeHitch</h1>
             <h3>Share a Ride to the Trail</h3>
+            <nav class="nav-wrapper blue-grey">
+                    <ul class="right hide-on-med-and-down">
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' user.username %}">Welcome {{user.username}}</a></li>
+                        <li><a href="{% url 'calendar' %}">Calendar</a></li>
+                        <li><a href="{% url 'trails_index' %}">Trails</a></li>
+                        <li><a href="{% url 'logout_view' %}">Log Out</a></li>
+                        {% else %}
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'trails_index' %}">Trails</a></li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        {% endif %}
+                    </ul>
+
+                </nav>            
     </header>
+
+<main>
+    <div class="container ">
     {% block content %}
     {% endblock %}
-    <footer>
+    </div>
+</main>
+
+    <footer  class="page-footer transparent">
         <ul>
-            <li>HikeHitch, Copyright 2018</li> 
             <li><a href="#">Facebook</a></li>
             <li><a href="#">Instagram</a></li>
             <li><a href="#">Twitter</a></li>
+            <li class="footer-copyright">HikeHitch, Copyright 2018</li> 
         </ul>
     </footer>
+    
+    <!-- materialize javascript cdn -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
