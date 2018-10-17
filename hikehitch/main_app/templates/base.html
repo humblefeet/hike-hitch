@@ -13,27 +13,24 @@
     <title>HikeHitch - Share a ride to the trail!</title>
 </head>
 <body>
-    <!-- <header class="center card-panel blue lighten-5"> -->
-        <h1 class=" head dark-grey-text">HikeHitch</h1>
-            <nav class="nav-wrapper blue-grey">
-                    <ul class="left">
-                        <li>Share a Ride to the Trail...</li>
-                    </ul>
-                    <ul class="right hide-on-med-and-down">
-                        {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' user.username %}">Welcome {{user.username}}</a></li>
-                        <li><a href="{% url 'trips' %}">Calendar</a></li>
-                        <li><a href="{% url 'trails_index' %}">Trails</a></li>
-                        <li><a href="{% url 'logout_view' %}">Log Out</a></li>
-                        {% else %}
-                        <li><a href="{% url 'about' %}">About</a></li>
-                        <li><a href="{% url 'trails_index' %}">Trails</a></li>
-                        <li><a href="{% url 'login' %}">Log In</a></li>
-                        {% endif %}
-                    </ul>
-
-                </nav>            
-    <!-- </header> -->
+    <h1 class=" head white-text">HikeHitch</h1>
+        <nav class="nav-wrapper blue-grey">
+            <ul class="s12 m6 l3">
+                <li>Share a Ride to the Trail...</li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' user.username %}">Welcome {{user.username}}</a></li>
+                <li><a href="{% url 'trips' %}">Calendar</a></li>
+                <li><a href="{% url 'trails_index' %}">Trails</a></li>
+                <li><a href="{% url 'logout_view' %}">Log Out</a></li>
+                {% else %}
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'trails_index' %}">Trails</a></li>
+                <li><a href="{% url 'login' %}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </nav>            
 
 <main>
     <div class="container ">

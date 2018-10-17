@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import date
-
+from django import forms
 
 DIFFICULTY = (
     ('1', 'Easy'),
@@ -54,6 +54,8 @@ class Hiker(models.Model):
         default = EXPERIENCE[0][0]
     )
     email = models.EmailField()
+    social_media = models.URLField()
+    bio = models.TextField(max_length=400)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.first_name

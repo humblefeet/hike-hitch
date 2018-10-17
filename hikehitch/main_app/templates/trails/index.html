@@ -2,8 +2,11 @@
 
 {% block content %}
 
-    <h1 class="white-text">Check out these MF trails!</h1>
-    <a href="/trails/create">Add a New Trail!</a>
+    <h1 class="dark-grey-text">Check out these MF trails!</h1>
+    {% if user.is_authenticated %}
+
+    <button type="submit"><a href="/trails/create">Add a New Trail!</a></button> 
+    {% endif %}
 
         {% for trail in trails %}
         <a href="{% url 'trails_detail' trail.id %}">
@@ -24,5 +27,4 @@
         </div>        
         </a>
         {% endfor %}
-        
 {% endblock %}
