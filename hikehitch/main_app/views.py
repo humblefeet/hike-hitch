@@ -112,8 +112,8 @@ class HikerCreate(CreateView):
 
 class TripCreate(CreateView):
     model = Trip
-    fields = '__all__'
+    fields = ['date','trail','length','difficulty','user']
     def form_valid(self,form):
         self.object = form.save(commit=False)
         self.object.save()
-        return HttpResponse('/trips/')
+        return HttpResponseRedirect('/trips/')

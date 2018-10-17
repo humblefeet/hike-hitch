@@ -1,5 +1,6 @@
 from django.forms import ModelForm, Form, CharField, PasswordInput
 from .models import Trail, Hiker, Trip
+from django import forms
 
 class LoginForm(Form):
     username = CharField(label="User Name", max_length=64)
@@ -15,4 +16,4 @@ class HikerForm(ModelForm):
 
 class TripForm(ModelForm):
     model = Trip
-    fields = ['date', 'trail']
+    fields = ['trail', 'date', 'difficulty', 'length', 'hiker']
