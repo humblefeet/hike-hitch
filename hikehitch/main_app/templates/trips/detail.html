@@ -2,11 +2,14 @@
 
 {% block content %}
 
-    {% for user in trip.user %}
+    <!-- {% for user in trip.user.all() %}
         <div>
-            <h3>{{user.first_name}}</h3>
-            <h4>{{user.social_media}}</h4>
-            <h4>{{user.email}}</h4>
-        </div>
+            <h3>{{user.username}}</h3>
+            <p>Gender: {{user.sex}}</p>
+            <p>Age: {{user.age}}</p>
+            <p>Experience: {{user.experience}}</p>
+            <p>Social Media {{user.social_media}}</p>
+            <p>Bio: {{user.bio}}</p>
+        </div> -->
 
 {% endblock %}

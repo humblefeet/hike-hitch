@@ -13,7 +13,7 @@ urlpatterns = [
     path('user/<username>', views.profile, name ='profile'),
     path('hikers/', views.hikers_index, name='hikers_index'),
     path('signup/hikers/create/', views.HikerCreate.as_view(), name='hiker_create'),
-    path('trips/', views.trips, name='trips'),
+    path('trips/', views.trips_index, name='trips_index'),
     path('trips/create/', views.TripCreate.as_view(), name='trip_create'),
-    path('trips/<int:trip_id>', views.trips_detail, name="trips_detail")
+    path('trips/<int:trip_id>', views.trips_detail, name="trips_detail"),
 ]

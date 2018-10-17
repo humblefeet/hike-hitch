@@ -33,7 +33,7 @@ def hikers_index(request):
     hikers = Hiker.objects.all()
     return render(request, 'hikers/index.html', {'hikers': hikers})
 
-def trips(request):
+def trips_index(request):
     trips = Trip.objects.all()
     return render(request, 'trips/index.html', {'trips': trips})
 
@@ -46,7 +46,6 @@ def trips_detail(request, trip_id):
 def profile(request, username):
     if username == request.user.username:
         user = User.objects.get(username=username)
-        # hiker = Hiker.objects.get(user=user)
         hiker = user.hiker
         return render(request, 'profile.html', {'username': username, 'hiker': hiker})
     else:
