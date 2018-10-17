@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="" method="post">
+<h3>Add a Trip</h3>
+<div class="container blue-grey-text blue lighten-5">
+    <form class="container" action="" method="post">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
+            <input type="radio" name="trail" />
         </table>
         <input type="submit" value="Submit!">
     </form>
+</div>
 {% endblock %}

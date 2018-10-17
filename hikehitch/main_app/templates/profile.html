@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <div class="card-content black-text">
-        <h1>{{ user.username }}'s Profile:</h1>
+{% block content %}        
+
+<h1>{{ user.username }}'s Profile:</h1>
+    <div class="container blue-grey-text blue lighten-5">
         <p>Age: {{hiker.age}}</p>
         <p>Gender: {{hiker.sex}}</p>
         <p>Experience: {{hiker.experience}}</p>

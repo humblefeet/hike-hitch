@@ -33,7 +33,8 @@ class Trail(models.Model):
         # add the 'choices' field option
         choices=DIFFICULTY,
         # set the default value for meal to be 'B'
-        default=DIFFICULTY[0][0])
+        default=DIFFICULTY[0][0],
+        )
     location = models.CharField(max_length=200)
         
     def __str__(self):
@@ -46,12 +47,12 @@ class Hiker(models.Model):
     age = models.IntegerField()
     sex = models.CharField(
         max_length=1,
-        choices=SEX
+        choices=SEX,
     )
     experience = models.CharField(
         max_length=1,
         choices = EXPERIENCE,
-        default = EXPERIENCE[0][0]
+        default = EXPERIENCE[0][0],
     )
     email = models.EmailField()
     social_media = models.URLField()
@@ -69,9 +70,9 @@ class Trip(models.Model):
     length = models.IntegerField(
         default=0
     )
-    difficulty= models.CharField(
-        max_length=1,
-        choices=DIFFICULTY,
-        default=DIFFICULTY[0][0]
+    difficulty = models.CharField(
+        max_length = 1,
+        choices = DIFFICULTY,
+        default = DIFFICULTY[0][0],
     )
     trail = models.ManyToManyField(Trail)

@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="blue-grey-text blue lighten-5">
-    <h2>Create a Profile</h2>
-
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit!">
-    </form>
-</div>
+<h2>Create a Profile</h2>
+    <div class="container blue-grey-text blue lighten-5">
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Submit!">
+        </form>
+    </div>
 {% endblock %}

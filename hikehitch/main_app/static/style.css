@@ -27,6 +27,5 @@ h1{
 
 }
 .card{
-    display: flex;
-    float: left;
+    display: inline-block;
 }
