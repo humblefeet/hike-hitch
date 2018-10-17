@@ -104,7 +104,7 @@ class TrailCreate(CreateView):
 
 class HikerCreate(CreateView):
     model = Hiker
-    fields = '__all__'
+    fields = ['first_name','sex', 'age', 'experience','email']
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.save()
