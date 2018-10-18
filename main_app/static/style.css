@@ -18,6 +18,9 @@ h1{
     padding: 0 auto;
     margin: 0 auto;
 }
+h6{
+    margin:  0 5%;
+}
 .head{
     font-style: 'Work Sans', sans-serif;
     font-weight: 700;

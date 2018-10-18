@@ -7,8 +7,8 @@
         <p>Age: {{hiker.age}}</p>
         <p>Gender: {{hiker.sex}}</p>
         <p>Experience: {{hiker.experience}}</p>
-        <p>Social Media: <a href="{{hiker.social_media}}"></a></p>
+        <p>Social Media: {{hiker.social_media}}</p>
         <p>Bio: {{hiker.bio}}</p>
     </div>
-<a href="{% url 'hiker_update' username %}">Edit</a>
+<a href="{% url 'hiker_update' user.hiker.id %}"><button type="button">Edit</button></a>
 {% endblock %}

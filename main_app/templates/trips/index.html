@@ -3,21 +3,11 @@
 {% block content %}
 
     <div class="row">
-        <div class="col s1">
-            <div>
-                <h3>Search for a Hike</h3>
-                <!-- Search criteria here -->
-
-            </div>
-            {% if user.is_authenticated %}
-            <div class="">
-                <h5>No hike match your criteria?</h5>
-                <button><a href="/trips/create/">Create a new one!</a></button> 
-            </div>
-            {% endif %}
+        <div class="left col s1">
+            <h3> </h3>
+            <button><a href="/trips/create/"><h4>Create a New Hike</h4></a></button>
         </div>
-                
-        <div class="col s11">
+        <div class="col s10"> 
             <h2 class="dark-grey-text">Calendar</h2>
 
             {% for trip in trips %}
@@ -26,13 +16,18 @@
                         <img class="activator" src="https://placeimg.com/350/230/nature">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text blue-grey lighten-4">{{trip.trail}}</span>
+                        <span class="card-title activator grey-text blue-grey lighten-4">{{trip.date}}</span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text blue-grey lighten-4">Date: {{trip.Date}} <i class="material-icons right">close</i></span>
+                        <span class="card-title grey-text blue-grey lighten-4">Date: {{trip.date}} <i class="material-icons right">close</i></span>
                         <p>Length(km): {{trip.length}}</p>
                         <p>Difficulty: {{trip.difficulty}}</p>
-                        <p>Location: {{trip.user}}</p>
+                        <p>Trail: {{trip.trail.name}}</p>
+                        <p>Hikers: {% for user in trip.user.all %}
+                                    {{user.name}}
+                                    {% endfor %}
+                        </p>
+                        <a href="{% url 'trips_delete' trip.id %}"><button type="button">Delete?</button></a>
                     </div>
                 </div>  
             {% endfor %}

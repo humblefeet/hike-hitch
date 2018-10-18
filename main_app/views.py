@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Trail, Hiker, Trip
-from django.views.generic.edit import CreateView,  UpdateView
+from django.views.generic.edit import CreateView,  UpdateView, DeleteView
 from django.utils.decorators import method_decorator
 
 
@@ -108,15 +108,17 @@ class TrailCreate(CreateView):
 
 class HikerCreate(CreateView):
     model = Hiker
-    fields = ['first_name','sex','age','experience','email','bio']
+    fields = ['first_name', 'age', 'sex', 'experience', 'email', 'social_media', 'bio']
     def form_valid(self, form):
         self.object = form.save(commit=False)
+        self.object.user = self.request.user
         self.object.save()
         return HttpResponseRedirect('/trails/')
 
 class TripCreate(CreateView):
     model = Trip
-    fields = ['date','trail','length','difficulty','user']
+    # fields = ['date','trail','user']
+    fields = '__all__'
     def form_valid(self,form):
         self.object = form.save(commit=False)
         self.object.save()
@@ -125,4 +127,9 @@ class TripCreate(CreateView):
 @method_decorator(login_required, name='dispatch')
 class HikerUpdate(UpdateView):
     model = Hiker
-    fields = ['first_name','sex','age','experience','email','bio']
+    fields = ['first_name', 'age', 'sex', 'experience', 'email', 'social_media', 'bio']
+
+@method_decorator(login_required, name='dispatch')
+class TripsDelete(DeleteView):
+    model = Trip
+    success_url = '/trips'

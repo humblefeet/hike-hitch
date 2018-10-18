@@ -43,8 +43,9 @@ class Trail(models.Model):
 
 class Hiker(models.Model):
     first_name = models.CharField(max_length=50)
-    age = models.IntegerField()
+    age = models.IntegerField(null=True)
     sex = models.CharField(
+        null=True,
         max_length=1,
         choices=SEX,
     )
@@ -54,18 +55,17 @@ class Hiker(models.Model):
         default = EXPERIENCE[0][0],
     )
     email = models.EmailField()
-    social_media = models.URLField()
+    social_media = models.URLField(null=True)
     bio = models.TextField(max_length=400)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.first_name
     def get_absolute_url(self):
-        return reverse('profile', kwargs={'hiker_id': self.id})
+        return reverse('profile', kwargs={'username': self.user.username})
 
 
 class Trip(models.Model):
     date = models.DateField()
-    user = models.ManyToManyField(User)
     length = models.IntegerField(
         default=0
     )
@@ -74,4 +74,5 @@ class Trip(models.Model):
         choices = DIFFICULTY,
         default = DIFFICULTY[0][0],
     )
+    user = models.ManyToManyField(User)
     trail = models.ManyToManyField(Trail)
