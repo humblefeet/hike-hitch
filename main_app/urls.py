@@ -1,5 +1,7 @@
 from django.urls import path, include
 from . import views
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('', views.index, name ='index'),
@@ -17,4 +19,5 @@ urlpatterns = [
     path('trips/', views.trips, name='trips'),
     path('trips/create/', views.TripCreate.as_view(), name='trip_create'),
     path('trips/<int:trip_id>', views.trips_detail, name="trips_detail"),
+    path('wish/',views.wish, name="wish"),
 ]

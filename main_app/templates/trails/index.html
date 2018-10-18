@@ -3,8 +3,15 @@
 {% block content %}
 <div class="row">
     <div class="col s1">
-        <h3>Search Trails</h3>
-        <!---Search function here-->
+        <div>
+            <h3>Search Trails</h3>
+            {% for radio_input in form.trail %}
+                {# Skip the empty value #}
+                {% if radio_input.choice_value %}
+                    <span>{{ radio_input }}</span>
+                {% endif %}
+            {% endfor %}
+        </div>
         {% if user.is_authenticated %}
         <button type="submit"><a href="{% url 'trail_create' %}">Add a New Trail!</a></button> 
         {% endif %}

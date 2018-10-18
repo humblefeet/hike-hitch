@@ -11,6 +11,7 @@ from django.utils.decorators import method_decorator
 
 
 
+
 # Create your views here.
 
 def index(request):
@@ -18,6 +19,9 @@ def index(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def wish(request):
+    return  render(request, 'wish.html')
 
 def logout_view(request):
     logout(request)
@@ -42,9 +46,6 @@ def trips(request):
 def trips_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
     return render(request, 'trips/<int:trip_id>/', {'trip': trip})
-
-
-
 
 @login_required
 def profile(request, username):
