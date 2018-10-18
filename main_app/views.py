@@ -6,7 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Trail, Hiker, Trip
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView,  UpdateView
+from django.utils.decorators import method_decorator
+
 
 
 # Create your views here.
@@ -33,13 +35,15 @@ def hikers_index(request):
     hikers = Hiker.objects.all()
     return render(request, 'hikers/index.html', {'hikers': hikers})
 
-def trips_index(request):
+def trips(request):
     trips = Trip.objects.all()
     return render(request, 'trips/index.html', {'trips': trips})
 
 def trips_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
-    return render(request, 'trips/<int:trip_id>', {'trip': trip})
+    return render(request, 'trips/<int:trip_id>/', {'trip': trip})
+
+
 
 
 @login_required
@@ -103,7 +107,7 @@ class TrailCreate(CreateView):
 
 class HikerCreate(CreateView):
     model = Hiker
-    fields = ['first_name','sex', 'age', 'experience','email']
+    fields = ['first_name','sex','age','experience','email','bio']
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.save()
@@ -116,3 +120,8 @@ class TripCreate(CreateView):
         self.object = form.save(commit=False)
         self.object.save()
         return HttpResponseRedirect('/trips/')
+
+@method_decorator(login_required, name='dispatch')
+class HikerUpdate(UpdateView):
+    model = Hiker
+    fields = ['first_name','sex','age','experience','email','bio']

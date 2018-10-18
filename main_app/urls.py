@@ -11,9 +11,10 @@ urlpatterns = [
     path('trails/create/', views.TrailCreate.as_view(), name='trail_create'),
     path('logout/', views.logout_view, name="logout_view"),
     path('user/<username>', views.profile, name ='profile'),
+    path('user/<int:pk>/update/', views.HikerUpdate.as_view(), name='hiker_update'),
     path('hikers/', views.hikers_index, name='hikers_index'),
     path('signup/hikers/create/', views.HikerCreate.as_view(), name='hiker_create'),
-    path('trips/', views.trips_index, name='trips_index'),
+    path('trips/', views.trips, name='trips'),
     path('trips/create/', views.TripCreate.as_view(), name='trip_create'),
     path('trips/<int:trip_id>', views.trips_detail, name="trips_detail"),
 ]

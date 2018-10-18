@@ -41,7 +41,6 @@ class Trail(models.Model):
         return self.name
 
 
-
 class Hiker(models.Model):
     first_name = models.CharField(max_length=50)
     age = models.IntegerField()
