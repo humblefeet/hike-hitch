@@ -5,15 +5,15 @@
     <div class="row">
         <div class="left col s1">
             <h3> </h3>
-            <a href="/trips/create/"><h4>Create a New Hike</h4></a>
+            <a href="/trips/create/"><h4 class="black-text">Create a New Hike</h4></a>
         </div>
-        <div class="col s10"> 
+        <div class="col s11"> 
             <h2 class="dark-grey-text">Calendar</h2>
 
             {% for trip in trips %}
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://placeimg.com/350/230/nature">
+                        <img class="activator" src="https://placeimg.com/350/240/nature">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text blue-grey lighten-4">{{trip.date}}</span>

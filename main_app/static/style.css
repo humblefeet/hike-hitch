@@ -6,14 +6,12 @@ body {
     background-image: url("https://i.imgur.com/CAd4mkY.jpg");
     background-size: cover;
     }
-
 main {
     flex: 1 0 auto;
 }
 nav{
     margin: 0;
 }
-
 h1{
     padding: 0 auto;
     margin: 0 auto;
@@ -21,12 +19,16 @@ h1{
 h6{
     margin:  0 5%;
 }
+button{
+    margin: 5%;
+}
 .head{
-    font-style: 'Work Sans', sans-serif;
-    font-weight: 700;
+    font-family: 'Modak', cursive;
+    font-weight: 400;
+    font-size: 7.5em;
     letter-spacing: 0.1em;
     padding: 0 auto;
-    margin: 5%;
+    margin: 2%;
 
 }
 .card{

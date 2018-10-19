@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}        
-
-<h1>{{ user.username }}'s Profile:</h1>
-    <div class="container blue-grey-text blue lighten-5">
-        <p>Age: {{hiker.age}}</p>
-        <p>Gender: {{hiker.sex}}</p>
-        <p>Experience: {{hiker.experience}}</p>
-        <p>Social Media: {{hiker.social_media}}</p>
-        <p>Bio: {{hiker.bio}}</p>
-    </div>
-<a href="{% url 'hiker_update' user.hiker.id %}"><button type="button">Edit</button></a>
+<div class="container">
+    <h1>{{ user.username }}'s Profile:</h1>
+        <div class="blue-grey-text blue lighten-5">
+            <p>Age: {{hiker.age}}</p>
+            <p>Gender: {{hiker.sex}}</p>
+            <p>Experience: {{hiker.experience}}</p>
+            <p>Social Media: {{hiker.social_media}}</p>
+            <p>Bio: {{hiker.bio}}</p>
+        </div>
+    <a href="{% url 'hiker_update' user.hiker.id %}"><button type="button">Edit</button></a>
+</div>
 {% endblock %}

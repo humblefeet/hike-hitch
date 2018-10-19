@@ -6,11 +6,11 @@
     {% if user.is_authenticated %}
     <div class="col s1">
         <h2> </h2>
-        <button type="submit"><a href="{% url 'trail_create' %}"><h3>Add a New Trail</h3></a></button> 
+        <a href="{% url 'trail_create' %}"><h4 class="black-text">Add a New Trail</h4></a>
     </div>
     {% endif %}
 
-    <div class="col s10">
+    <div class="col s11">
         <h2 class="dark-grey-text">Check out these MF trails!</h2>
         {% for trail in trails %}
             <div class="card">
@@ -28,30 +28,6 @@
                 </div>
             </div>  
         {% endfor %}
-    </div>
-
-    <div class="col s1">
-        <div>
-            <form> 
-                <h4>Search Trails:</h4>
-                <div>
-                <p>Difficulty</p>
-                <input type="radio" id="contactChoice1">
-                    <label for="contactChoice1">Easy</label>
-                <input type="radio" id="contactChoice2">
-                    <label for="contactChoice2">Moderate</label>
-                <input type="radio" id="contactChoice3">
-                    <label for="contactChoice3">Hard</label>
-                <input type="radio" id="contactChoice4">
-                    <label for="contactChoice4">Advanced</label>   
-                <input type="radio" id="contactChoice5">
-                    <label for="contactChoice5">Extreme</label>                 
-                </div>
-                <div>
-                    <button type="submit">Search</button>
-                </div>
-            </form>
-        </div>
     </div>
 </div>
 {% endblock %}
