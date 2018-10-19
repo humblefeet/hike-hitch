@@ -117,12 +117,16 @@ class HikerCreate(CreateView):
 
 class TripCreate(CreateView):
     model = Trip
-    # fields = ['date','trail','user']
-    fields = '__all__'
-    def form_valid(self,form):
-        self.object = form.save(commit=False)
-        self.object.save()
-        return HttpResponseRedirect('/trips/')
+    fields = ['date','trail','hiker']
+    success_url = '/trips'
+    # def form_valid(self,form):
+    #     self.object = form.save(commit=False)
+    #     # trip  = Trip.objects.get(id=self.object.id)
+    #     # trip.hiker.add(self.request.user.id)
+    #     form.save()
+    #     return HttpResponseRedirect('/trips/')
+
+
 
 @method_decorator(login_required, name='dispatch')
 class HikerUpdate(UpdateView):

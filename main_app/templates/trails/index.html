@@ -2,23 +2,15 @@
 
 {% block content %}
 <div class="row">
+
+    {% if user.is_authenticated %}
     <div class="col s1">
-        <div>
-            <h3>Search Trails</h3>
-            {% for radio_input in form.trail %}
-                {# Skip the empty value #}
-                {% if radio_input.choice_value %}
-                    <span>{{ radio_input }}</span>
-                {% endif %}
-            {% endfor %}
-        </div>
-        {% if user.is_authenticated %}
-        <button type="submit"><a href="{% url 'trail_create' %}">Add a New Trail!</a></button> 
-        {% endif %}
-
+        <h2> </h2>
+        <button type="submit"><a href="{% url 'trail_create' %}"><h3>Add a New Trail</h3></a></button> 
     </div>
+    {% endif %}
 
-    <div class="col s11">
+    <div class="col s10">
         <h2 class="dark-grey-text">Check out these MF trails!</h2>
         {% for trail in trails %}
             <div class="card">
@@ -36,6 +28,30 @@
                 </div>
             </div>  
         {% endfor %}
+    </div>
+
+    <div class="col s1">
+        <div>
+            <form> 
+                <h4>Search Trails:</h4>
+                <div>
+                <p>Difficulty</p>
+                <input type="radio" id="contactChoice1">
+                    <label for="contactChoice1">Easy</label>
+                <input type="radio" id="contactChoice2">
+                    <label for="contactChoice2">Moderate</label>
+                <input type="radio" id="contactChoice3">
+                    <label for="contactChoice3">Hard</label>
+                <input type="radio" id="contactChoice4">
+                    <label for="contactChoice4">Advanced</label>   
+                <input type="radio" id="contactChoice5">
+                    <label for="contactChoice5">Extreme</label>                 
+                </div>
+                <div>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

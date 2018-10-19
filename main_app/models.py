@@ -66,13 +66,5 @@ class Hiker(models.Model):
 
 class Trip(models.Model):
     date = models.DateField()
-    length = models.IntegerField(
-        default=0
-    )
-    difficulty = models.CharField(
-        max_length = 1,
-        choices = DIFFICULTY,
-        default = DIFFICULTY[0][0],
-    )
-    user = models.ManyToManyField(User)
+    hiker = models.ManyToManyField(Hiker)
     trail = models.ManyToManyField(Trail)
