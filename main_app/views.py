@@ -45,6 +45,7 @@ def trips(request):
 
 def trips_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
+    
     return render(request, 'trips/<int:trip_id>/', {'trip': trip})
 
 @login_required
@@ -124,7 +125,7 @@ class TripCreate(CreateView):
     #     # trip  = Trip.objects.get(id=self.object.id)
     #     # trip.hiker.add(self.request.user.id)
     #     form.save()
-    #     return HttpResponseRedirect('/trips/')
+    # #     return HttpResponseRedirect('/trips/')
 
 
 

@@ -20,7 +20,12 @@
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text blue-grey lighten-4">Date: {{trip.date}} <i class="material-icons right">close</i></span>
-
+                        <p>Length(km): {{trip.trail_length}}</p>
+                        <p>Difficulty: {{trip.difficulty}}</p>
+                        <p>Trail: {{trip.trail.}}</p>
+                        <p>Hikers: {% for hiker in trip.hikers %}
+                                    {{hiker.name}}
+                                    {% endfor %}
                         </p>
                         <a href="{% url 'trips_delete' trip.id %}"><button type="button">Delete?</button></a>
                     </div>

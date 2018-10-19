@@ -27,3 +27,10 @@
 * As a hiker, I want to create a new hike, because a hike does not exist that meets my requirements.
 * As a hiker, I want to add a new trail because one does not exist in the system.
 * As a hiker, I want to view the trails and and filter them based on what Im looking for.
+
+## Technologies Used
+1. Python
+2. Django
+3. pSQL
+
+## Road Blocks
