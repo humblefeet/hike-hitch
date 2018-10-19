@@ -57,6 +57,8 @@ When I tried to fix my tables and run the server. This error showed after trying
 So I was forced to return to the original state of my code.
 ![Imgur](https://i.imgur.com/4U2GKy6.png)
 
+So currently, I  am unable to  display information of trail or hiker names in the trip details
+
 ## IceBox (Future  features)
 
 1. Search  trails  available
