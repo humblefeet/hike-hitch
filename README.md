@@ -1,6 +1,11 @@
 # hike-hitch
 ## My Hike Hitch web application
 
+[My Trello Board](https://trello.com/b/1JfOh9tR/hikehitch)
+[My Heroku Deployment](https://agile-basin-28760.herokuapp.com/)
+
+
+## User Stories
 1. User enters main page
   -Greeted with title
   -option to sign up or login 
@@ -51,3 +56,11 @@ One the last day before my project week I ran into the problem of not knowing ho
 When I tried to fix my tables and run the server. This error showed after trying to created a trip.
 So I was forced to return to the original state of my code.
 ![Imgur](https://i.imgur.com/4U2GKy6.png)
+
+## IceBox (Future  features)
+
+1. Search  trails  available
+2. Link trips to all users on trip
+3. Users can add photos to profile or trails
+4. Users can communicate to other hikers on trip they are doing
+5. Users can see distance to trail head and determine gas prices
