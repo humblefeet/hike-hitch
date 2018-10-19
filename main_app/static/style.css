@@ -3,7 +3,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url("https://i.imgur.com/CAd4mkY.jpg");
+    background-image: url('images/background.jpg');
     background-size: cover;
     }
 main {
@@ -28,7 +28,7 @@ button{
     font-size: 7.5em;
     letter-spacing: 0.1em;
     padding: 0 auto;
-    margin: 2%;
+    margin: 3%;
 
 }
 .card{
