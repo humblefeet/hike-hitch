@@ -4,17 +4,18 @@
     <div class="left col s2">
         <h3> </h3>
         <a href="/trips/create/"><h4 class="black-text">Create a New Hike</h4></a>
+
     </div>
 
     <div class="col s10">
-        <img class="activator" src="https://placeimg.com/350/240/nature">
+        <a href="/trips/"><img class="activator" src="https://placeimg.com/350/240/nature"></a>
 
-        <div  class="card grey-text blue-grey lighten-4">
+        <div  class="card black-text blue-grey lighten-4">
             <h3>{{trip.date}}</h3>
-            <h4>Trail: {{trip.trail.name}}</h4>
-            <p>Difficulty:{{trip.trail.difficulty}}</p>
-            <p>Length: {{trip.trail.length}}</p>
-            <p>Hikers: {% for hiker in trip.hikers_set %}
+            <h4>Trail: {{trail}}</h4>
+            <p>Difficulty:{{trail.difficulty}}</p>
+            <p>Length: {{trail.length}}</p>
+            <p>Hikers: {% for hiker in hikers %}
                 {{hiker.name}}
                 <br>
                 {% endfor %}
