@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="left col s2">
+        <h3> </h3>
+        <a href="/trips/create/"><h4 class="black-text">Create a New Hike</h4></a>
+    </div>
 
+    <div class="col s10">
+        <img class="activator" src="https://placeimg.com/350/240/nature">
+
+        <div  class="card grey-text blue-grey lighten-4">
+            <h3>{{trip.date}}</h3>
+            <h4>Trail: {{trip.trail.name}}</h4>
+            <p>Difficulty:{{trip.trail.difficulty}}</p>
+            <p>Length: {{trip.trail.length}}</p>
+            <p>Hikers: {% for hiker in trip.hikers_set %}
+                {{hiker.name}}
+                <br>
+                {% endfor %}
+            </p>
+            <a href="{% url 'trips_delete' trip.id %}"><button type="button">Delete Trip?</button></a>
+
+        </div>
+    </div>
 {% endblock %}

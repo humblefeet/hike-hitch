@@ -18,7 +18,7 @@ urlpatterns = [
     path('signup/hikers/create/', views.HikerCreate.as_view(), name='hiker_create'),
     path('trips/', views.trips, name='trips'),
     path('trips/create/', views.TripCreate.as_view(), name='trip_create'),
-    path('trips/<int:pk>/delete/', views.TripsDelete.as_view(), name="trips_delete"),
     path('trips/<int:trip_id>', views.trips_detail, name="trips_detail"),
+    path('trips/<int:pk>/delete/', views.TripsDelete.as_view(), name="trips_delete"),
     path('wish/',views.wish, name="wish"),
 ]

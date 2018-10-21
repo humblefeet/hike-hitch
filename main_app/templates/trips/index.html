@@ -11,25 +11,19 @@
             <h2 class="dark-grey-text">Calendar</h2>
 
             {% for trip in trips %}
+            <a href="{% url 'trips_detail' trip.id %}">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://placeimg.com/350/240/nature">
+                        <img src="https://placeimg.com/350/240/nature">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text blue-grey lighten-4">{{trip.date}}</span>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text blue-grey lighten-4">Date: {{trip.date}} <i class="material-icons right">close</i></span>
-                        <p>Length(km): {{trip.trail_length}}</p>
-                        <p>Difficulty: {{trip.difficulty}}</p>
-                        <p>Trail: {{trip.trail.}}</p>
-                        <p>Hikers: {% for hiker in trip.hikers %}
-                                    {{hiker.name}}
-                                    {% endfor %}
-                        </p>
-                        <a href="{% url 'trips_delete' trip.id %}"><button type="button">Delete?</button></a>
                     </div>
                 </div>  
+            </a>
             {% endfor %}
         </div>
     </div>

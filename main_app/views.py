@@ -41,7 +41,9 @@ def trips(request):
 
 def trips_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
-    return render(request, 'trips/<int:trip_id>/', {'trip': trip})
+    trail = Trail.objects.all()
+    hikers = Hiker.objects.all()
+    return render(request, 'trips/detail.html', {'trip': trip,'trail':trail, 'hikers':  hikers})
 
 @login_required
 def profile(request, username):
