@@ -47,10 +47,10 @@ def trips_detail(request, trip_id):
 @login_required
 def profile(request, username):
     user = User.objects.get(username=username)
-    hiker = user.hiker
-    if user.hiker is None:
-        return HttpResponseRedirect('signup/hikers/create/')
+    if not hasattr(user, 'hiker'):
+        return HttpResponseRedirect('/signup/hikers/create/')
     elif username == request.user.username:
+        hiker = user.hiker
         return render(request, 'profile.html', {'username': username, 'hiker': hiker})
     else:
         return HttpResponseRedirect('/')
