@@ -12,14 +12,20 @@
 
         <div  class="card black-text blue-grey lighten-4">
             <h3>{{trip.date}}</h3>
-            <h4>Trail: {{trail}}</h4>
-            <p>Difficulty:{{trail.difficulty}}</p>
-            <p>Length: {{trail.length}}</p>
-            <p>Hikers: {% for hiker in hikers %}
-                {{hiker.name}}
+            <h3>Trail: </h3>
+                {% for trail in trails %}
+                <h4> {{trail}} </h4> 
+            <h5>Difficulty: </h5>
+                <p>{{trail.difficulty}}</p>
+            <h5>Length: </h5>
+                <p>{{trail.length}}</p>
+            {% endfor %}
+
+            <h4>Hikers: </h4>
+            {% for hiker in hikers %}
+                <p>{{hiker}} </p>
                 <br>
-                {% endfor %}
-            </p>
+            {% endfor %}
             <a href="{% url 'trips_delete' trip.id %}"><button type="button">Delete Trip?</button></a>
 
         </div>

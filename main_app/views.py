@@ -9,6 +9,8 @@ from .models import Trail, Hiker, Trip
 from django.views.generic.edit import CreateView,  UpdateView, DeleteView
 from django.utils.decorators import method_decorator
 
+def base(request):
+    return render(request, 'index.html')
 
 def index(request):
     return render(request, 'index.html')
@@ -41,9 +43,9 @@ def trips(request):
 
 def trips_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
-    trail = Trip.trail_set.objects.all()
-    hikers = Trip.hiker_set.objects.all()
-    return render(request, 'trips/detail.html', {'trip': trip, 'trail':trail, 'hikers':hikers})
+    trails = trip.trail.all()
+    hikers = trip.hiker.all()
+    return render(request, 'trips/detail.html', {'trip': trip, 'trails':trails, 'hikers':hikers})
 
 @login_required
 def profile(request, username):
