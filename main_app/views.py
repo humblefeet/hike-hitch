@@ -9,9 +9,6 @@ from .models import Trail, Hiker, Trip
 from django.views.generic.edit import CreateView,  UpdateView, DeleteView
 from django.utils.decorators import method_decorator
 
-def base(request):
-    return render(request, 'index.html')
-
 def index(request):
     return render(request, 'index.html')
 
@@ -49,9 +46,11 @@ def trips_detail(request, trip_id):
 
 @login_required
 def profile(request, username):
-    if username == request.user.username:
-        user = User.objects.get(username=username)
-        hiker = user.hiker
+    user = User.objects.get(username=username)
+    hiker = user.hiker
+    if user.hiker is None:
+        return HttpResponseRedirect('signup/hikers/create/')
+    elif username == request.user.username:
         return render(request, 'profile.html', {'username': username, 'hiker': hiker})
     else:
         return HttpResponseRedirect('/')
