@@ -2,7 +2,7 @@
 ## My Hike Hitch web application
 
 [My Trello Board](https://trello.com/b/1JfOh9tR/hikehitch)
-[My Heroku Deployment](https://agile-basin-28760.herokuapp.com/)
+[My Heroku Deployment](https://pacific-falls-21296.herokuapp.com/)
 
 
 ## User Stories
@@ -35,7 +35,7 @@
 
 ## ERD Models
 
-![ERD Model][Imgur](https://i.imgur.com/z7dHUN8.png))
+![Imgur](https://i.imgur.com/z7dHUN8.png)
 
 ## Technologies Used
 1. Python
